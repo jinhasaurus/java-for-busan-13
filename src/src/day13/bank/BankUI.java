@@ -26,7 +26,7 @@ public class BankUI {
         while (true) {
             switch (choice) {
                 case 1:
-                    BankManager.createCustomer();
+                    BankManager.CreateCustomer();
                     break;
                 case 2:
                     BankManager.deposit();
@@ -48,5 +48,14 @@ public class BankUI {
             }
         }
 
+    }
+
+    public static void printMenuofCC() {
+        System.out.println("""
+                [계좌 생성]
+                1. 신규 고객
+                2. 기존 고객
+                3. 종료
+                """);
     }
 }

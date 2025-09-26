@@ -35,8 +35,14 @@ public class Student {
 
     public void showStudentInfo() {
         System.out.println(this.studentID+this.name);
-        for (day10.Array.arraylist.Subject s : subjectList) {
-            System.out.println(s);
-        }
+//        for (Array.arraylist.Subject s : subjectList) {
+//            System.out.println(s);
     }
+
+//    public void showStudentInfo() {
+//        System.out.println(this.studentID+this.name);
+//        for (Array.arraylist.Subject s : subjectList) {
+//            System.out.println(s);
+//        }
+//    }
 }

@@ -6,8 +6,8 @@ Account ID Generator class
 
  */
 
-import static day11.BankManager.AREA_ID;
-import static day11.BankManager.BANK_NO;
+import static src.day11.BankManager.AREA_ID;
+import static src.day11.BankManager.BANK_NO;
 
 public class AccountIDGenerator {
     // static을 부여한 어쩌구는 인스턴트 부여하지 않아도 사용할 수 있게 됨

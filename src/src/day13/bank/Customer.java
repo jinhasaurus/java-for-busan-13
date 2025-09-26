@@ -5,11 +5,14 @@ public class Customer {
     String ssn; // 주민번호
     String address;
 
-    private void Customer (String name, String ssn, String address) {
+    public Customer(String name, String ssn, String address) {
         this.name = name;
         this.ssn = ssn;
         this.address = address;
     }
 
+    public void getAccount () {
+        Account a = new Account();
+    }
 
 }

@@ -9,6 +9,9 @@ public class Account {
         this.accNo = accNo;
         this.c = c;
         this.balance = balance;
+        balance = 0;
     }
+
+
 
 }

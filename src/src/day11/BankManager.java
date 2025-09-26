@@ -1,6 +1,5 @@
 package src.day11;
 
-import day9.bank.AccountIDGenerator;
 
 import java.util.ArrayList;
 import java.util.Scanner;
