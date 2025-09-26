@@ -2,16 +2,26 @@ package src.day13.bank;
 
 public class Account {
     String accNo;
-    Customer c;
     long balance;
 
-    private void Account (String accNo, Customer c, long balance) {
+    public Account (String accNo, long balance) {
         this.accNo = accNo;
-        this.c = c;
-        this.balance = balance;
-        balance = 0;
+        this.balance = 0;
     }
 
+    public long getBalance() {
+        return balance;
+    }
 
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
 
+    public String getAccNo() {
+        return accNo;
+    }
+
+    public void setAccNo(String accNo) {
+        this.accNo = accNo;
+    }
 }

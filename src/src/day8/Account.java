@@ -9,13 +9,11 @@ public class Account {
         this.accNo = accNo;
         this.balance = balance;
         this.customer = customer;
-        System.out.println("계좌가 생성되었습니다.");
         getAccountInfo();
     }
 
     void getAccountInfo() {
         System.out.printf("소유주:%s \n계좌번호:%s \n잔고:₩%d원\n\n", this.customer.name, this.accNo, this.balance);
-        // 여기서 this는 호출한 주체임...
     }
 
     public void deposit(long amount) {
