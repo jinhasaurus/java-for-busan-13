@@ -22,18 +22,22 @@ public class BankManager {
             {
                 Customer c = createCustomer();
                 Account a = createAccountForCustomer(c);
-                System.out.println("신규 고객 계좌가 생성되었습니다. 계좌 번호 : "+a.getAccNo());
+                System.out.println("신규 고객 계좌가 생성되었습니다. 계좌 번호 : " + a.getAccNo());
                 break;
             }
             case 2: // 기존 고객 불러와서 신규 계좌 만들기
-            {
-                Customer c = selectExistingCustomer();
-                if (c != null) {
-                    Account a = createAccountForCustomer(c); // Customer에 계좌 추가
-                    System.out.println("기존 고객의 새 계좌가 생성되었습니다. 계좌번호 : "+a.getAccNo());
+                if (hasAnyAccount()) {
+                    Customer c = selectExistingCustomer();
+                    if (c != null) {
+                        Account a = createAccountForCustomer(c); // Customer에 계좌 추가
+                        System.out.println("기존 고객의 새 계좌가 생성되었습니다. 계좌번호 : " + a.getAccNo());
+                    }
+                    break;
+                } else {
+                    System.out.println("현재 계좌가 없습니다. 먼저 계좌를 생성해주세요.");
+                    break; // 메뉴로 돌아가기
                 }
-                break;
-            }
+
             case 3: // 초기 메뉴 돌아가기
                 System.out.println("초기 메뉴로 돌아갑니다.");
                 BankUI.printMenu();
@@ -82,6 +86,7 @@ public class BankManager {
         }
         a.setBalance(a.getBalance() + amount); // balance를 안전하게 수정
         System.out.println(a.getAccNo() + " 계좌에 " + amount + "원이 입금되었습니다.");
+        System.out.println("잔액 = "+a.getBalance());
     }
 
     //출금하기
@@ -92,11 +97,12 @@ public class BankManager {
             System.out.println("출금액이 잔액보다 큽니다.");
         } else {
             a.setBalance(a.getBalance() - amount);
-            System.out.println(amount+"원이 출금되었습니다.");
+            System.out.println(amount + "원이 출금되었습니다.");
+            System.out.println("잔액 = "+a.getBalance());
         }
     }
 
-    //이체하기
+    // 이체하기
     public void transfer(Account a, Account target, long amount) {
         if (amount <= 0) {
             System.out.println("0원 이하 금액은 이체할 수 없습니다.");
@@ -106,9 +112,11 @@ public class BankManager {
             a.setBalance(a.getBalance() - amount);
             target.setBalance(target.getBalance() + amount);
             System.out.println(amount + "원 이체되었습니다.");
+            System.out.println("잔액 = "+target.getBalance());
         }
     }
 
+    // 전체 출력
     public void printAll() {
         System.out.println("전체 고객 목록");
         for (Customer c : customerList) {
@@ -124,7 +132,25 @@ public class BankManager {
 
     // 계좌 조회하기
     public Account selectAccount() {
-        String accNo = ui.searchAccount(); // UI에서 계좌번호 입력
+        while (true) { // 못 찾으면 찾을 때까지 반복
+            String accNo = ui.searchAccount(); // UI에서 계좌번호 입력
+            // 모든 고객 탐색
+            for (Customer c : customerList) {
+                // 고객의 모든 계좌 탐색
+                for (Account a : c.getAccountList()) { // getAccountList() 필요
+                    if (a.getAccNo().equals(accNo)) {
+                        return a; // 계좌 찾으면 반환
+                    }
+                }
+            }
+            // 못 찾은 경우
+            System.out.println("그런 계좌 없음");
+        }
+    }
+
+    // 계좌 조회하기 + 메시지 지정 가능 코드
+    public Account selectAccount(String message) {
+        String accNo = ui.searchAccount(message); // UI에서 계좌번호 입력
         // 모든 고객 탐색
         for (Customer c : customerList) {
             // 고객의 모든 계좌 탐색
@@ -138,4 +164,15 @@ public class BankManager {
         System.out.println("그런 계좌 없음");
         return null;
     }
+
+    // 최초 계좌 생성 유무 판단
+    public boolean hasAnyAccount() {
+        for (Customer c : customerList) {
+            if (c.getAccountList().size() > 0) {
+                return true; // 계좌 하나라도 있으면 true
+            }
+        }
+        return false; // 고객이 없거나 모두 계좌 없음
+    }
+
 }

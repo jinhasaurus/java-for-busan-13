@@ -21,10 +21,10 @@ public class BankUI {
     }
 
     public int selectMenu() {
-            System.out.println("메뉴를 선택하세요.");
-            int choice = scan.nextInt();
-            scan.nextLine();
-            return choice;
+        System.out.println("메뉴를 선택하세요.");
+        int choice = scan.nextInt();
+        scan.nextLine();
+        return choice;
     }
 
     //CreateAccount의 출력문
@@ -47,7 +47,7 @@ public class BankUI {
         String ssn = scan.nextLine();
         System.out.println("주소를 입력하세요.");
         String address = scan.nextLine();
-        return new Customer (name, ssn, address);
+        return new Customer(name, ssn, address);
     }
 
     public String searchCustomer() {
@@ -69,6 +69,13 @@ public class BankUI {
     }
 
 
+    public String searchAccount(String message) {
+        System.out.println(message);
+        String accNo = scan.nextLine();
+        return accNo;
+    }
+
+
     public String fromAcc() {
         System.out.println("이체할 계좌의 번호를 입력하세요.");
         String accNo = scan.nextLine();
@@ -80,4 +87,6 @@ public class BankUI {
         String accNo = scan.nextLine();
         return accNo;
     }
-}
+
+
+    }
