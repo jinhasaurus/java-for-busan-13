@@ -1,7 +1,6 @@
 package src.day13.bank;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class BankManager {
     // 입출력 받는 BankUI 호출
@@ -106,7 +105,7 @@ public class BankManager {
     public void transfer(Account a, Account target, long amount) {
         if (amount <= 0) {
             System.out.println("0원 이하 금액은 이체할 수 없습니다.");
-        } else if (amount > a.balance) {
+        } else if (amount > a.getBalance()) {
             System.out.println("출금 금액이 잔액보다 큽니다.");
         } else {
             a.setBalance(a.getBalance() - amount);

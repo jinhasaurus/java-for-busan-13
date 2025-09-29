@@ -1,6 +1,8 @@
 package src.day8;
 
 public class Account {
+    // 어카운트 정보 저장
+
     String accNo; // 계좌 번호
     long balance; // 잔고
     Customer customer; // 계좌 소유주 정보

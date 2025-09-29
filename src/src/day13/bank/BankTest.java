@@ -2,6 +2,9 @@ package src.day13.bank;
 
 public class BankTest {
     // 뱅크테스트 안에서 쓸 수 있도록 선언!!
+    // 싱글톤으로?? 해도 댄다?? 싱글톤이 머더라
+    // 여러 개의 객체 필요한 게 ㄴㄴ
+    // 여기 fianl은 클래스 안의 final
     private static final BankManager bm = new BankManager();
     public static final BankUI ui = new BankUI();
 

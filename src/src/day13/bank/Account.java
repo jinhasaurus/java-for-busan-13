@@ -2,7 +2,7 @@ package src.day13.bank;
 
 public class Account {
     String accNo;
-    long balance;
+    private long balance;
 
     public Account (String accNo, long balance) {
         this.accNo = accNo;
