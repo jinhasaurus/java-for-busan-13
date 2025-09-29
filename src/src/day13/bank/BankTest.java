@@ -1,10 +1,11 @@
 package src.day13.bank;
 
 public class BankTest {
-    public static void main(String[] args) {
-        BankManager bm = new BankManager();
-        BankUI ui = new BankUI();
+    // 뱅크테스트 안에서 쓸 수 있도록 선언!!
+    private static final BankManager bm = new BankManager();
+    public static final BankUI ui = new BankUI();
 
+    public static void main(String[] args) {
         // 메뉴 출력
         while (true) {
             ui.printMenu();
