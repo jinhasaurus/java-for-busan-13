@@ -31,12 +31,12 @@ public class MockSongs {
 
     public static List<SongV3> getSongV3s() {
         List<SongV3> songV3s = new ArrayList<>();
-        songV3s.add(new SongV3("Creephyp","가수",100));
+        songV3s.add(new SongV3("creep","가수",100));
         songV3s.add(new SongV3("aimyon","아임용",190));
         songV3s.add(new SongV3("Aimyon","하하",200));
-        songV3s.add(new SongV3("3636","묭묭",96));
-        songV3s.add(new SongV3("😃","바보바보",123));
-        songV3s.add(new SongV3("seasonInThesun","집가고시퍼",333));
+        songV3s.add(new SongV3("!!idontno","묭묭",96));
+        songV3s.add(new SongV3("3636","바보바보",123));
+        songV3s.add(new SongV3("hehehehehe","집가고시퍼",333));
         songV3s.add(new SongV3("hehehehehe","hahaha",55));
         return songV3s;
     }

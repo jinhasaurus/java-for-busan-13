@@ -1,6 +1,8 @@
 package src.day16.bank;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BankManager {
     // 입출력 받는 BankUI 호출
@@ -12,6 +14,8 @@ public class BankManager {
 
     // 고객리스트 생성
     private ArrayList<Customer> customerList = new ArrayList<>();
+    // Set으로 정렬
+    // Set<Customer> customerSet = new HashSet<>(customerList);
 
     // 계좌 생성 관리
     public void selectAccountType() {
@@ -115,7 +119,7 @@ public class BankManager {
         }
     }
 
-    // 전체 출력
+    //전체 출력
     public void printAll() {
         System.out.println("전체 고객 목록");
         for (Customer c : customerList) {
@@ -128,6 +132,14 @@ public class BankManager {
             System.out.println("-----------------------");
         }
     }
+//
+//    public void printAll() {
+//        System.out.println("전체 고객 목록 (Customer는 삽입 순서)");
+//        for (Customer c : customerList) { // ArrayList 순회 (순서 변경 없음)
+//            // ...
+//            for (Account a : c.getAccountList()) { // TreeSet으로 자동 정렬된 List를 받음!
+//                // ... (이 부분의 계좌가 정렬되어 출력됨)
+//            }
 
     // 계좌 조회하기
     public Account selectAccount() {

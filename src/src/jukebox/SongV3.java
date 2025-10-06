@@ -1,5 +1,7 @@
 package src.jukebox;
 
+import java.util.Objects;
+
 public class SongV3 implements Comparable<SongV3> {
     // 필드, 생성자, 겟터, toString()-> 타이틀만 문자열로 반환해달라
     private String title;
@@ -38,4 +40,15 @@ public class SongV3 implements Comparable<SongV3> {
         return title.compareTo(o.getTitle());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof SongV3 songV3)) return false;
+        // 대소문자 구분 없이 ㅎㅎ toUpperCase
+        return Objects.equals(getTitle().toUpperCase(), songV3.getTitle().toUpperCase());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getTitle().toUpperCase());
+    }
 }
