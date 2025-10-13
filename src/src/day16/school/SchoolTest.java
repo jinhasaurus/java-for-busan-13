@@ -1,5 +1,6 @@
 package src.day16.school;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SchoolTest {
@@ -13,6 +14,16 @@ public class SchoolTest {
         while (true) {
             // 메뉴 선택 받기
             Menu choose = m.printMenu();
+            int i = 0;
+            try {
+                i = scan.nextInt();
+
+            } catch (InputMismatchException e) {
+                System.out.println("메뉴는 숫자로 입력해주세요.");
+                scan.nextLine();
+                continue;
+            }
+
             switch (choose) {
                 case CREATE:
                     m.createPerson();
